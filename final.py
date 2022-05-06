@@ -65,8 +65,8 @@ WHERE o.country = "{}" AND o.Role="coordinator"
 GROUP BY o.projectAcronym
 ORDER BY ShortName ASC
 '''.format(country),conn,index_col="Years")
-st.download_button(label=f"Download {selection} Coordinators",data=convert_df(df_coordinators), file_name=f'coordinators{selection}.csv', mime='text/csv',)
 
 conn.close()
 st.dataframe(df_coordinators)
+st.download_button(label=f"Download {selection} Coordinators",data=convert_df(df_coordinators), file_name=f'coordinators{selection}.csv', mime='text/csv',)
 
