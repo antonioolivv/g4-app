@@ -10,7 +10,15 @@ st.image('3AB54F9E-5771-4627-94FD-FAEA53432F73.webp')
 
 conn = sq.connect('ecsel_database.db')
 
-country=st.text_input("Select a country")
+acronym=st.text_input("Select a country")
+
+country_acronyms = {'Belgium': 'BE', 'Bulgaria': 'BG', 'Czechia': 'CZ', 'Denmark': 'DK', 'Germany':
+'DE', 'Estonia': 'EE', 'Ireland': 'IE','Greece': 'EL', 'Spain': 'ES', 'France': 'FR', 'Croatia':
+'HR', 'Italy': 'IT', 'Cyprus': 'CY', 'Latvia': 'LV', 'Lithuania': 'LT','Luxembourg': 'LU',
+'Hungary': 'HU', 'Malta': 'MT', 'Netherlands': 'NL', 'Austria': 'AT', 'Poland': 'PL', 'Portugal':
+'PT','Romania': 'RO', 'Slovenia': 'SI', 'Slovakia': 'SK', 'Finland': 'FI', 'Sweden': 'SE'}
+
+country=country_acronyms[acronym]
 
 #frist table
 df_grants_year=pd.read_sql('''
@@ -20,7 +28,7 @@ WHERE o.country = "{}"
 GROUP BY p.year
 '''.format(country),conn,index_col="Years")
 conn.close()
-st.title(f"Participants in{country}")
+st.title(f"Participants in {country}")
 st.bar_chart(data=df_grants_year, width=0, height=0, use_container_width=True)
 
 
