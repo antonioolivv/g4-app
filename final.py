@@ -10,7 +10,8 @@ st.image('3AB54F9E-5771-4627-94FD-FAEA53432F73.webp')
 
 conn = sq.connect('ecsel_database.db')
 
-selection=st.text_input("Select a country")
+selection=st.selectbox("Select country",['Belgium' , 'Bulgaria', 'Czechia', 'Denmark', 'Germany', 'Estonia', 'Ireland','Greece', 'Spain', 'France', 'Croatia', 'Italy', 'Cyprus', 'Latvia', 'Lithuania','Luxembourg',
+'Hungary', 'Malta', 'Netherlands', 'Austria', 'Poland', 'Portugal','Romania', 'Slovenia', 'Slovakia', 'Finland', 'Sweden'])
 
 country_acronyms = {'Belgium':'BE' , 'Bulgaria': 'BG', 'Czechia': 'CZ', 'Denmark': 'DK', 'Germany':
 'DE', 'Estonia': 'EE', 'Ireland': 'IE','Greece': 'EL', 'Spain': 'ES', 'France': 'FR', 'Croatia':
