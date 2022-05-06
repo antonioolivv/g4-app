@@ -51,7 +51,7 @@ st.dataframe(df_participants)
 
 def convert_df(data): 
  return df_participants.to_csv().encode('utf-8') 
-st.download_button(label="mycsv",data=convert_df(df_participants), file_name='df.csv', mime='text/csv',)
+st.download_button(label=f"Download {selection}Participants",data=convert_df(df_participants), file_name=f'participants{selection}.csv', mime='text/csv',)
 
 #Third table
 
