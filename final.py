@@ -45,6 +45,6 @@ ORDER BY Contribution DESC
 '''.format(country),conn,index_col="Years")
 
 conn.close()
-st.table(df_grants_year)
+st.dataframe(df_grants_year)
 
 
