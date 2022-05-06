@@ -10,21 +10,21 @@ st.image('3AB54F9E-5771-4627-94FD-FAEA53432F73.webp')
 
 conn = sq.connect('ecsel_database.db')
 
-acronym=st.text_input("Select a country")
+selection=st.text_input("Select a country")
 
-country_acronyms = {'BE':'Belgium' , 'Bulgaria': 'BG', 'Czechia': 'CZ', 'Denmark': 'DK', 'Germany':
+country_acronyms = {'Belgium':'BE' , 'Bulgaria': 'BG', 'Czechia': 'CZ', 'Denmark': 'DK', 'Germany':
 'DE', 'Estonia': 'EE', 'Ireland': 'IE','Greece': 'EL', 'Spain': 'ES', 'France': 'FR', 'Croatia':
 'HR', 'Italy': 'IT', 'Cyprus': 'CY', 'Latvia': 'LV', 'Lithuania': 'LT','Luxembourg': 'LU',
 'Hungary': 'HU', 'Malta': 'MT', 'Netherlands': 'NL', 'Austria': 'AT', 'Poland': 'PL', 'Portugal':
 'PT','Romania': 'RO', 'Slovenia': 'SI', 'Slovakia': 'SK', 'Finland': 'FI', 'Sweden': 'SE'}
 
-country=country_acronyms[acronym]
+country=country_acronyms[selection]
 
 #frist table
 df_grants_year=pd.read_sql('''
 SELECT SUM(o.ecContribution) AS Grants,year AS Years
 FROM participants o JOIN projects p ON o.projectID==p.projectID
-WHERE o.acronym = "{}"
+WHERE o.country = "{}"
 GROUP BY p.year
 '''.format(country),conn,index_col="Years")
 conn.close()
