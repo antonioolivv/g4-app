@@ -49,4 +49,19 @@ ORDER BY Contribution DESC
 conn.close()
 st.dataframe(df_grants_year)
 
+#Third table
+
+st.title(f"Project coordinators in {selection}")
+conn = sq.connect('ecsel_database.db')
+
+df_grants_year=pd.read_sql('''
+SELECT COUNT(o.projectID) AS ProjectCount,SUM(o.ecContribution)AS Contribution,year AS Years,name AS OrganizationName,shortName AS ShortName,organizationURL AS URL,activityType as ActivityType
+FROM participants o JOIN projects p ON o.projectID==p.projectID
+WHERE o.country = "{}" AND o.Role="coordinator"
+GROUP BY o.projectAcronym
+ORDER BY ShortName ASC
+'''.format(country),conn,index_col="Years")
+
+conn.close()
+df_grants_year.head()
 
