@@ -24,7 +24,7 @@ country=country_acronyms[acronym]
 df_grants_year=pd.read_sql('''
 SELECT SUM(o.ecContribution) AS Grants,year AS Years
 FROM participants o JOIN projects p ON o.projectID==p.projectID
-WHERE o.country = "{}"
+WHERE o.acronym = "{}"
 GROUP BY p.year
 '''.format(country),conn,index_col="Years")
 conn.close()
