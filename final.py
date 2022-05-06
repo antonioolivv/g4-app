@@ -35,6 +35,8 @@ st.bar_chart(data=df_grants_year, width=0, height=0, use_container_width=True)
 
 #Second table
 
+st.title(f"Participants in {selection}")
+
 conn = sq.connect('ecsel_database.db')
 df_grants_year=pd.read_sql('''
 SELECT COUNT(o.projectID) AS ProjectCount,SUM(o.ecContribution)AS Contribution,year AS Years,name AS OrganizationName,shortName AS ShortName,organizationURL AS URL,activityType as ActivityType
