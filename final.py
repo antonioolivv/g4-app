@@ -51,7 +51,7 @@ st.dataframe(df_participants)
 
 def convert_df(data): 
  return df_participants.to_csv().encode('utf-8') 
-st.download_button(label=f"Download {selection}Participants",data=convert_df(df_participants), file_name=f'participants{selection}.csv', mime='text/csv',)
+st.download_button(label=f"Download {selection} Participants",data=convert_df(df_participants), file_name=f'participants{selection}.csv', mime='text/csv',)
 
 #Third table
 
@@ -65,6 +65,7 @@ WHERE o.country = "{}" AND o.Role="coordinator"
 GROUP BY o.projectAcronym
 ORDER BY ShortName ASC
 '''.format(country),conn,index_col="Years")
+st.download_button(label=f"Download {selection} Coordinators",data=convert_df(df_coordinators), file_name=f'coordinators{selection}.csv', mime='text/csv',)
 
 conn.close()
 st.dataframe(df_coordinators)
