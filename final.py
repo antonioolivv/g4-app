@@ -58,6 +58,7 @@ ORDER BY Contribution DESC
 conn.close()
 st.dataframe(df_participants)
 #FR2.21 - Definition of a function to make more accesible the downlooad function in Streamlit
+# QUESTION - Where should be the function be defined
 def convert_df(data): 
  return df_participants.to_csv().encode('utf-8') 
 st.download_button(label=f"Download {selection} Participants",data=convert_df(df_participants), file_name=f'participants{selection}.csv', mime='text/csv',)
