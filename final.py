@@ -38,7 +38,7 @@ st.bar_chart(data=df_grants_year, width=0, height=0, use_container_width=True)
 st.title(f"Participants in {selection}")
 
 conn = sq.connect('ecsel_database.db')
-df_grants_year=pd.read_sql('''
+df_participants=pd.read_sql('''
 SELECT COUNT(o.projectID) AS ProjectCount,SUM(o.ecContribution)AS Contribution,year AS Years,name AS OrganizationName,shortName AS ShortName,organizationURL AS URL,activityType as ActivityType
 FROM participants o JOIN projects p ON o.projectID==p.projectID
 WHERE o.country = "{}" 
@@ -47,14 +47,14 @@ ORDER BY Contribution DESC
 '''.format(country),conn,index_col="Years")
 
 conn.close()
-st.dataframe(df_grants_year)
+st.dataframe(df_participants)
 
 #Third table
 
 st.title(f"Project coordinators in {selection}")
 conn = sq.connect('ecsel_database.db')
 
-df_grants_year=pd.read_sql('''
+df_coordinators=pd.read_sql('''
 SELECT COUNT(o.projectID) AS ProjectCount,SUM(o.ecContribution)AS Contribution,year AS Years,name AS OrganizationName,shortName AS ShortName,organizationURL AS URL,activityType as ActivityType
 FROM participants o JOIN projects p ON o.projectID==p.projectID
 WHERE o.country = "{}" AND o.Role="coordinator"
@@ -63,5 +63,5 @@ ORDER BY ShortName ASC
 '''.format(country),conn,index_col="Years")
 
 conn.close()
-st.dataframe(df_grants_year)
+st.dataframe(df_coordinators)
 
