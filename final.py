@@ -20,7 +20,7 @@ WHERE o.country = "{}"
 GROUP BY p.year
 '''.format(country),conn,index_col="Years")
 conn.close()
-st.title("Participants in",country)
+st.title(f"Participants in{country}")
 st.bar_chart(data=df_grants_year, width=0, height=0, use_container_width=True)
 
 
