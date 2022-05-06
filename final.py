@@ -63,5 +63,5 @@ ORDER BY ShortName ASC
 '''.format(country),conn,index_col="Years")
 
 conn.close()
-df_grants_year.head()
+st.dataframe(df_grants_year)
 
