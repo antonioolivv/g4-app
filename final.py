@@ -8,7 +8,7 @@ st.title("My First Web App")
 st.image('./3AB54F9E-5771-4627-94FD-FAEA53432F73.webp')
 
 
-conn = sq.connect('./ecsel_database.db')
+conn = sq.connect('ecsel_database.db')
 
 country=input("Select a country")
 
