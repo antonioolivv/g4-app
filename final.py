@@ -20,10 +20,6 @@ WHERE o.country = "{}"
 GROUP BY p.year
 '''.format(country),conn)
 conn.close()
-st.dataframe(df_grants_year)
+st.table(df_grants_year)
 
 
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
-st.write(chart_data)
-option = st.selectbox('Options', ['a', 'b', 'c'])
-st.bar_chart(chart_data)
