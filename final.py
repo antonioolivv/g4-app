@@ -20,7 +20,7 @@ WHERE o.country = "{}"
 GROUP BY p.year
 '''.format(country),conn)
 conn.close()
-df_grants_year.head()
+st.table(df_grants_year)
 
 
 chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['a', 'b', 'c'])
