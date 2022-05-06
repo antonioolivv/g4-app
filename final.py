@@ -10,7 +10,7 @@ st.image('3AB54F9E-5771-4627-94FD-FAEA53432F73.webp')
 
 conn = sq.connect('ecsel_database.db')
 
-country=input("Select a country")
+country=st.text_input("Select a country")
 
 #frist table
 df_grants_year=pd.read_sql('''
