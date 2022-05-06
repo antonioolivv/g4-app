@@ -49,6 +49,10 @@ ORDER BY Contribution DESC
 conn.close()
 st.dataframe(df_participants)
 
+def convert_df(df_participants): 
+ return df.to_csv().encode('utf-8') 
+st.download_button(label="mycsv",data=convert_df(df_participants), file_name='df.csv', mime='text/csv',)
+
 #Third table
 
 st.title(f"Project coordinators in {selection}")
