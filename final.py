@@ -83,4 +83,4 @@ st.dataframe(df_coordinators)
 st.download_button(label=f"Download {selection} Coordinators",data=convert_df(df_coordinators), file_name=f'coordinators{selection}.csv', mime='text/csv',)
 
 #FR-2.22 The final application is deployed in Streamlit
-<a href="...">Click here to laucn the app</a>
+# Link: 
