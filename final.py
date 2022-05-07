@@ -84,7 +84,7 @@ st.dataframe(df_coordinators)
 st.download_button(label=f"Download {selection} Coordinators",data=convert_df(df_coordinators), file_name=f'coordinators{selection}.csv', mime='text/csv',)
 
 #FR-2.22 The final application is deployed in Streamlit
-# Link: https://share.streamlit.io/
+# Link: https://share.streamlit.io/antonioolivv/g4-app/main/final.py
 
 # Add the st.write(f'You selected: {country}-{ct[country]}')
 # Group all SQL queries, connect and close the connection just once and after that display the barchart and dataframes
