@@ -1,7 +1,6 @@
 #the required libraries where imported
 import streamlit as st
 import pandas as pd
-#import numpy as np
 import sqlite3 as sq
 
 # Image and principal title of the app
