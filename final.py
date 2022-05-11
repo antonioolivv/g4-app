@@ -66,7 +66,6 @@ st.bar_chart(data=df_grants_year, width=0, height=0, use_container_width=True)
 st.title(f"Participants in {selection}")
 st.dataframe(df_participants)
 #FR2.21 - Definition of a function to make more accesible the downlooad function in Streamlit
-# QUESTION - Where should be the function be defined
 def convert_df(data): 
  return df_participants.to_csv().encode('utf-8') 
 st.download_button(label=f"Download {selection} Participants",data=convert_df(df_participants), file_name=f'participants{selection}.csv', mime='text/csv',)
